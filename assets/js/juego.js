@@ -30,9 +30,7 @@ const crearDeck  = () => {
     console.log(deck)
     return deck;
 }
-
 crearDeck();    
-
 
 // Esta función permite tomar una carta:
 
@@ -40,11 +38,39 @@ const pedirCarta = () => {
 
     if (deck.length === 0){
         throw 'No hay cartas en la baraja';
-
     }
-
     const carta = deck.pop();
+    console.log(carta);
     return carta;    
 }
+let carta = pedirCarta();
 
-pedirCarta();
+//Esta función permite obtener el valor de la carta: 
+
+const valorCarta = (carta) => {
+    // puntos = 0;
+    // const valor = carta.substring(0, carta.length - 1);
+    // console.log(valor);
+    // if (isNaN(valor)) {
+        //     if (valor === 'A'){
+            //         puntos = 11;            
+            //     }else{
+                //         puntos = 10;
+                //     }
+                // } else {
+                    //     puntos = valor * 1
+                    // }
+                    // console.log({puntos});
+                    // Lo anterior resumido sería lo siguiente:
+                    
+    const valor = carta.substring(0, carta.length - 1);
+    const puntos = !isNaN(valor) ? valor * 1 
+            : (valor === 'A') ? 11 : 10; 
+            
+
+    console.log({puntos})
+
+    return 
+}
+
+valorCarta(carta);
