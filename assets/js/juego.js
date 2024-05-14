@@ -27,7 +27,7 @@ const crearDeck  = () => {
     //Esta baraja está en orden. Por lo que para que salga desordenado, 
     // usaremos una librería: underscore para revolver todas las cartas.
     deck = _.shuffle(deck);
-
+    console.log(deck)
     return deck;
 }
 
@@ -35,3 +35,16 @@ crearDeck();
 
 
 // Esta función permite tomar una carta:
+
+const pedirCarta = () => {
+
+    if (deck.length === 0){
+        throw 'No hay cartas en la baraja';
+
+    }
+
+    const carta = deck.pop();
+    return carta;    
+}
+
+pedirCarta();
