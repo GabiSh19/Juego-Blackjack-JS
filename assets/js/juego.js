@@ -47,7 +47,7 @@ let carta = pedirCarta();
 
 //Esta función permite obtener el valor de la carta: 
 
-const valorCarta = (carta) => {
+const valorCarta = ( carta ) => {
     // puntos = 0;
     // const valor = carta.substring(0, carta.length - 1);
     // console.log(valor);
@@ -64,13 +64,11 @@ const valorCarta = (carta) => {
                     // Lo anterior resumido sería lo siguiente:
                     
     const valor = carta.substring(0, carta.length - 1);
-    const puntos = !isNaN(valor) ? valor * 1 
-            : (valor === 'A') ? 11 : 10; 
-            
 
-    console.log({puntos})
-
-    return 
+    return ( isNaN( valor ) ) ? 
+            ( valor === 'A' ) ? 11 : 10
+           : valor * 1;    
 }
 
-valorCarta(carta);
+const valor = valorCarta(pedirCarta());
+console.log({valor})
