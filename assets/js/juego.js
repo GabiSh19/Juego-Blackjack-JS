@@ -9,6 +9,11 @@ let deck        = [];
 let tipos       = ['C', 'D', 'H', 'S'];
 let especiales  = ['A', 'J', 'Q', 'K'];
 
+//Referencias del HTML:
+const btnNuevo   = document.querySelector('#btnNuevo');
+const btnPedir   = document.querySelector('#btnPedir');
+const btnDetener   = document.querySelector('#btnDetener');
+
 // Esta función crea una nueva baraja en aleatorio:
 const crearDeck  = () => {
 
@@ -43,7 +48,6 @@ const pedirCarta = () => {
     console.log(carta);
     return carta;    
 }
-let carta = pedirCarta();
 
 //Esta función permite obtener el valor de la carta: 
 
@@ -70,5 +74,8 @@ const valorCarta = ( carta ) => {
            : valor * 1;    
 }
 
-const valor = valorCarta(pedirCarta());
-console.log({valor})
+//const valor = valorCarta(pedirCarta());
+//console.log({valor})
+//______________________________________________________________________________
+
+//Eventos:
