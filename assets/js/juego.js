@@ -90,7 +90,7 @@ const valorCarta = ( carta ) => {
 //console.log({valor})
 //______________________________________________________________________________
 
-//Turno de la computadora:
+//Turno de la computadora: tiene que hacer los puntos igual o superior al jugadora
 
 const turnoComputadora = (puntosMinimo) =>  {
     do {
@@ -103,8 +103,11 @@ const turnoComputadora = (puntosMinimo) =>  {
         imgCartas.classList.add('carta')
     
         cartasComputadora.append(imgCartas);
+        if ( puntosMinimo > 21 ){
+            break;
+        }
 
-    } while (condition);
+    } while ( (puntosComputadora < puntosMinimo) && ( puntosMinimo <= 21 ));
 
 }
 
@@ -119,10 +122,14 @@ btnPedir.addEventListener( 'click', () => {
     if ( puntosJugador > 21){
         console.warn('Lo siento, perdiste');
         btnPedir.disabled = true;
-
+        btnDetener.disabled = true;
+        turnoComputadora(puntosJugador);
+        
     } else if ( puntosJugador === 21 ){
         console.warn('21, genial');
         btnPedir.disabled = true;
+        btnDetener.disabled = true;
+        turnoComputadora(puntosJugador);
 
     } else {
         console.log(puntosJugador)
@@ -136,5 +143,9 @@ btnPedir.addEventListener( 'click', () => {
     }
 });
 
-// Lógica de la computadora: tiene que hacer los puntos
-//igual o superior al jugadora
+btnDetener.addEventListener('click', () => {
+    btnPedir.disabled = true;
+    btnDetener.disabled = true;
+
+    turnoComputadora(puntosJugador);
+})
