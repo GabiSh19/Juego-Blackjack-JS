@@ -6,16 +6,23 @@
 
 //Baraja
 let deck        = [];
-let tipos       = ['C', 'D', 'H', 'S'];
-let especiales  = ['A', 'J', 'Q', 'K'];
+const tipos       = ['C', 'D', 'H', 'S'];
+const especiales  = ['A', 'J', 'Q', 'K'];
+
+let puntosJugador = 0,
+    puntosComputadora = 0;
+
 
 //Referencias del HTML:
-const btnNuevo   = document.querySelector('#btnNuevo');
-const btnPedir   = document.querySelector('#btnPedir');
+const btnNuevo     = document.querySelector('#btnNuevo');
+const btnPedir     = document.querySelector('#btnPedir');
 const btnDetener   = document.querySelector('#btnDetener');
+const smalls       = document.querySelectorAll('small');
+
+// const 
 
 // Esta función crea una nueva baraja en aleatorio:
-const crearDeck  = () => {
+    const crearDeck  = () => {
 
     for (let i=2; i <=10; i++){
         for (let tipo of tipos){
@@ -79,3 +86,12 @@ const valorCarta = ( carta ) => {
 //______________________________________________________________________________
 
 //Eventos:
+
+btnPedir.addEventListener( 'click', () => {
+
+    const carta = pedirCarta();
+    puntosJugador += valorCarta (carta);
+    
+    console.log(puntosJugador)
+    smalls[0].innerText = puntosJugador;
+});
