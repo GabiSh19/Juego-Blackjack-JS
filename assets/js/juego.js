@@ -4,6 +4,8 @@
 // 2H = Two of Hearts 
 // 2S = Two of Spades
 
+const { warn } = require("vue");
+
 //Baraja
 let deck        = [];
 const tipos       = ['C', 'D', 'H', 'S'];
@@ -17,7 +19,10 @@ let puntosJugador = 0,
 const btnNuevo     = document.querySelector('#btnNuevo');
 const btnPedir     = document.querySelector('#btnPedir');
 const btnDetener   = document.querySelector('#btnDetener');
-const smalls       = document.querySelectorAll('small');
+
+const puntosJugadores      = document.querySelectorAll('small');
+const cartasJugador        = document.querySelector('#jugador-cartas');
+const cartasComputadora    = document.querySelector('#computadora-cartas');
 
 // const 
 
@@ -85,6 +90,25 @@ const valorCarta = ( carta ) => {
 //console.log({valor})
 //______________________________________________________________________________
 
+//Turno de la computadora:
+
+const turnoComputadora = (puntosMinimo) =>  {
+    do {
+        const carta = pedirCarta();
+        puntosComputadora += valorCarta (carta);
+        puntosJugadores[1].innerText = puntosComputadora;
+
+        const imgCartas = document.createElement('img');
+        imgCartas.src = `./assets/cartas/${carta}.png`;
+        imgCartas.classList.add('carta')
+    
+        cartasComputadora.append(imgCartas);
+
+    } while (condition);
+
+}
+
+
 //Eventos:
 
 btnPedir.addEventListener( 'click', () => {
@@ -92,6 +116,25 @@ btnPedir.addEventListener( 'click', () => {
     const carta = pedirCarta();
     puntosJugador += valorCarta (carta);
     
-    console.log(puntosJugador)
-    smalls[0].innerText = puntosJugador;
+    if ( puntosJugador > 21){
+        console.warn('Lo siento, perdiste');
+        btnPedir.disabled = true;
+
+    } else if ( puntosJugador === 21 ){
+        console.warn('21, genial');
+        btnPedir.disabled = true;
+
+    } else {
+        console.log(puntosJugador)
+        puntosJugadores[0].innerText = puntosJugador;
+     
+        const imgCartas = document.createElement('img');
+        imgCartas.src = `./assets/cartas/${carta}.png`;
+        imgCartas.classList.add('carta')
+    
+        cartasJugador.append(imgCartas);
+    }
 });
+
+// Lógica de la computadora: tiene que hacer los puntos
+//igual o superior al jugadora
