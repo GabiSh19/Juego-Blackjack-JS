@@ -4,14 +4,12 @@
 // 2H = Two of Hearts 
 // 2S = Two of Spades
 
-const { warn } = require("vue");
-
 //Baraja
 let deck        = [];
 const tipos       = ['C', 'D', 'H', 'S'];
 const especiales  = ['A', 'J', 'Q', 'K'];
 
-let puntosJugador = 0,
+let     puntosJugador = 0,
     puntosComputadora = 0;
 
 
@@ -105,9 +103,20 @@ const turnoComputadora = (puntosMinimo) =>  {
         cartasComputadora.append(imgCartas);
         if ( puntosMinimo > 21 ){
             break;
-        }
-
+        } 
     } while ( (puntosComputadora < puntosMinimo) && ( puntosMinimo <= 21 ));
+    
+    setTimeout(() => {
+        if ( puntosComputadora === puntosMinimo ) {
+            alert('Empate entre computadora y jugador');
+        } 
+        else if ( puntosJugador > 21){
+            alert('Computadora ha ganado el juego');
+        }
+        else if ( (puntosComputadora > 21) ) {
+            alert('Jugador ha ganado el juego');
+        }         
+    }, 1000)
 
 }
 
