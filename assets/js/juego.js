@@ -116,7 +116,10 @@ const turnoComputadora = (puntosMinimo) =>  {
         else if ( (puntosComputadora > 21) ) {
             alert('Jugador ha ganado el juego');
         }         
-    }, 1000)
+        else{
+            alert('Computadora ha ganado el juego');
+        }
+    }, 100)
 
 }
 
@@ -157,4 +160,20 @@ btnDetener.addEventListener('click', () => {
     btnDetener.disabled = true;
 
     turnoComputadora(puntosJugador);
+})
+
+btnNuevo.addEventListener('click', () => {
+
+    btnPedir.disabled = false;
+    btnDetener.disabled = false;
+
+    deck = [];
+    deck = crearDeck();  
+
+    puntosJugadores[0].innerText = 0;
+    puntosJugadores[1].innerText = 0;
+
+    cartasComputadora.innerHTML = '';
+    cartasJugador.innerHTML = '';
+
 })
