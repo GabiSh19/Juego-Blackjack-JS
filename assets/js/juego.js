@@ -4,7 +4,7 @@
 // 2S = Two of Spades
 
 //Patrón Módulo: patrón de diseño más común en JS, compatible casi con cualquier versión. Permite encapsular y proteger el código. Función anónimo autoinvocada.
-( () => {
+const miModulo = ( () => {
 
     'use strict';
 
@@ -27,10 +27,16 @@
 
     // Esta función inicializa el juego:
     const inicializarJuego = ( numJugadores = 2 ) => {
+
         deck = crearDeck();
+        contadorPuntosJugadores = [];
         for ( let i = 0; i<numJugadores; i++ ){
             contadorPuntosJugadores.push(0)
         }
+
+        puntosJugadores.forEach( elem => elem.innerText = 0 ); 
+        divCartas.forEach( elem => elem.innerHTML = '' ); 
+
     }
 
     // Esta función crea una nueva baraja en aleatorio:
@@ -188,29 +194,20 @@
     btnDetener.addEventListener('click', () => {
         btnPedir.disabled = true;
         btnDetener.disabled = true;
-
-        turnoComputadora(puntosJugador);
+        turnoComputadora(contadorPuntosJugadores[0]);
     })
 
     btnNuevo.addEventListener('click', () => {
 
         inicializarJuego();
-
         btnPedir.disabled = false;
         btnDetener.disabled = false;
 
-        
-
-        // puntosJugador     = 0;
-        // puntosComputadora = 0;
-
-        // puntosJugadores[0].innerText = 0;
-        // puntosJugadores[1].innerText = 0;
-
-        // cartasComputadora.innerHTML = '';
-        // cartasJugador.innerHTML = '';
-
     });
+
+    return {
+
+    }
 
 })();
 
