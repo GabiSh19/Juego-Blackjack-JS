@@ -108,7 +108,27 @@
             imgCartas.src = `./assets/cartas/${ carta }.png`;
             imgCartas.classList.add('carta');
             divCartas[turno].append(imgCartas);
+    }
 
+    //Esta función determina el ganador:
+    const determinarGanador = () => {
+
+        const [puntosMinimo, puntosComputadora] = contadorPuntosJugadores;
+
+        setTimeout(() => {
+            if ( puntosComputadora === puntosMinimo ) {
+                alert('Empate entre computadora y jugador');
+            } 
+            else if ( puntosMinimo > 21){
+                alert('Computadora ha ganado el juego');
+            }
+            else if ( (puntosComputadora > 21) ) {
+                alert('Jugador ha ganado el juego');
+            }         
+            else{
+                alert('Computadora ha ganado el juego');
+            }
+        }, 100)
     }
 
 
@@ -132,22 +152,10 @@
             } 
         } while ( (puntosComputadora < puntosMinimo) && ( puntosMinimo <= 21 ));
         
-        setTimeout(() => {
-            if ( puntosComputadora === puntosMinimo ) {
-                alert('Empate entre computadora y jugador');
-            } 
-            else if ( puntosMinimo > 21){
-                alert('Computadora ha ganado el juego');
-            }
-            else if ( (puntosComputadora > 21) ) {
-                alert('Jugador ha ganado el juego');
-            }         
-            else{
-                alert('Computadora ha ganado el juego');
-            }
-        }, 100)
-
+        determinarGanador();
     }
+
+    
 
 
     //Eventos:
