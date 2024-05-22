@@ -9,8 +9,14 @@ html, body{
     background-color: black;
     text-align: center;
     color: white;
-    padding: 25px;
+    height: 25vh;
+    padding: 45px;
     font-size: 30px;
+    background-image: url('../unnamed.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 86% 86%
+    
 }
 
 .carta{
