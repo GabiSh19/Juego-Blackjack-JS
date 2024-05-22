@@ -1,7 +1,8 @@
 html, body{
     margin: 0px;
-    background-color: #2F4F30;
-    color: white;
+    background-color: #98e180;
+    color: rgb(65, 58, 58);
+    
 }
 
 .headerTitulo{
@@ -15,7 +16,7 @@ html, body{
 .carta{
     width: 150px;
     position: relative;
-    left: 45%;
+    left: 40%;
     margin-left: -75px;
 }
 
