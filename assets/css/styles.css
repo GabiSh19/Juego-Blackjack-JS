@@ -19,6 +19,21 @@ html, body{
     
 }
 
+#btnNuevo{
+    background-color: rgb(235, 245, 105);
+    color: black;
+}
+
+#btnPedir{
+    background-color: rgb(69, 187, 192);
+    color: black;
+}
+
+#btnDetener{
+    background-color: rgb(255, 118, 118);
+    color: black;
+}
+
 .carta{
     width: 150px;
     position: relative;
