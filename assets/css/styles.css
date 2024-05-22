@@ -9,17 +9,17 @@ html, body{
     background-color: black;
     text-align: center;
     color: white;
-    padding: 20px;
-    font-size: 25px;
+    padding: 25px;
+    font-size: 30px;
 }
 
 .carta{
     width: 150px;
     position: relative;
     left: 40%;
-    margin-left: -75px;
+    margin-left: -80px;
 }
 
-#jugador-cartas, computadora-cartas {
+#jugador-cartas, #computadora-cartas {
     height: 240px;
 }
